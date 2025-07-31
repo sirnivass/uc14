@@ -73,3 +73,10 @@ body {
 h1, h2, h3, h4, h5, h6, p, span {
     color: var(--text-color);
 }
+
+/* Lista de análises */
+.list-group-item {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--card-border) !important;
+}
