@@ -33,6 +33,11 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Texto */
+h1, h2, h3, h4, h5, h6, p, span {
+    color: var(--text-color);
+}
+
 /* Cards */
 .card {
     background-color: var(--card-bg);
@@ -41,21 +46,8 @@ body {
 
 /* Tabelas */
 .table {
-    background-color: var(--card-bg);
     --bs-table-bg: var(--card-bg) !important;
-    
-    color: var(--text-color);
-}
-
-.table-light {
     background-color: var(--card-bg);
-    color: var(--text-color);
-}
-
-.table-light, 
-.table-light > th, 
-.table-light > td {
-    background-color: var(--table-header);
     color: var(--text-color);
 }
 
@@ -65,27 +57,10 @@ body {
     color: var(--text-color);
 }
 
-/* Botões */
-.btn-outline-secondary {
-    color: var(--btn-text);
-    border-color: var(--btn-text);
-}
-
-.btn-outline-secondary:hover {
-    background-color: var(--btn-text);
-    color: var(--bg-color);
-}
-
-/* Texto */
-h1, h2, h3, h4, h5, h6, p, span {
+.table-light {
+    --bs-table-accent-bg: var(--table-header) !important;
+    background-color: var(--table-header);
     color: var(--text-color);
-}
-
-/* Lista de análises */
-.list-group-item {
-    background-color: var(--card-bg) !important;
-    color: var(--text-color) !important;
-    border-color: var(--card-border) !important;
 }
 
 /* Formulários */
@@ -93,6 +68,20 @@ h1, h2, h3, h4, h5, h6, p, span {
     color: var(--text-color) !important;
 }
 
-[data-theme="dark"] .form-label {
-    color: #ffffff !important;
+/* Botões */
+.btn-outline-secondary {
+    border-color: var(--btn-text);
+    color: var(--btn-text);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--btn-text);
+    color: var(--bg-color);
+}
+
+/* Lista de análises */
+.list-group-item {
+    background-color: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-color) !important;
 }
