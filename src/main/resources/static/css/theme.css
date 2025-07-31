@@ -15,7 +15,7 @@
 /* Variáveis de tema escuro */
 :root[data-theme="dark"] {
     --bg-color: #212529;
-    --text-color: #f8f9fa;
+    --text-color: #ffffff;
     --card-bg: #343a40;
     --card-border: #495057;
     --table-header: #2c3034;
