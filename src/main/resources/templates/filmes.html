@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header('Filmes')}">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <button onclick="toggleTheme()" class="btn btn-outline-secondary">
+            <i class="fas fa-moon"></i> Alternar Tema
+        </button>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Lista de Filmes</h2>
+            <a href="/filmes/novo" class="btn btn-primary">Novo Filme</a>
+        </div>
+        <div class="card">
+            <table class="table">
+                <thead class="table-light">
+                    <tr>
+                        <th>Título</th>
+                        <th>Gênero</th>
+                        <th>Ano</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="filme : ${filmes}">
+                        <td th:text="${filme.titulo}">Título</td>
+                        <td th:text="${filme.genero}">Gênero</td>
+                        <td th:text="${filme.anoLancamento}">Ano</td>
+                        <td>
+                            <a th:href="@{'/filmes/' + ${filme.id}}" class="btn btn-primary btn-sm">Detalhes</a>
+                            <a th:href="@{'/filmes/' + ${filme.id} + '/editar'}" class="btn btn-warning btn-sm">Editar</a>
+                            <button class="btn btn-danger btn-sm btn-remover" th:attr="data-id=${filme.id}">Remover</button>
+                        </td>
+                    </tr>
+                    <tr th:if="${filmes != null and #lists.isEmpty(filmes)}">
+                        <td colspan="4" class="text-center">Nenhum filme cadastrado.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/js/filmes.js"></script>
+<script src="/js/theme.js"></script>
+
+</body>
+</html>

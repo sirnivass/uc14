@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header('Novo Filme')}">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+    <button onclick="toggleTheme()" class="btn btn-outline-secondary">
+        <i class="fas fa-moon"></i> Alternar Tema
+    </button>
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2>Novo Filme</h2>
+            </div>
+            <div class="card-body">
+                <form th:action="@{${filme.id} != null ? '/filmes/' + ${filme.id} : '/filmes'}" method="post" th:object="${filme}">
+                    <input type="hidden" name="_method" th:value="${filme.id} != null ? 'put' : 'post'"/>
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        <input th:field="*{titulo}" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sinopse</label>
+                        <input th:field="*{sinopse}" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gênero</label>
+                        <input th:field="*{genero}" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ano</label>
+                        <input th:field="*{anoLancamento}" type="number" class="form-control" required/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/filmes" class="btn btn-secondary">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+:root[data-theme="light"] {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #fff;
+    --card-border: rgba(0,0,0,.125);
+    --table-header: #e9ecef;
+    --table-hover: rgba(0,0,0,.075);
+    --input-bg: #fff;
+    --input-color: #212529;
+    --input-border: #ced4da;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #212529;
+    --text-color: #f8f9fa;
+    --card-bg: #343a40;
+    --card-border: rgba(255,255,255,.125);
+    --table-header: #2c3034;
+    --table-hover: rgba(255,255,255,.075);
+    --input-bg: #2c3034;
+    --input-color: #f8f9fa;
+    --input-border: #495057;
+}
+
+/* Estilos gerais */
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+}
+
+.card-header {
+    border-bottom-color: var(--card-border) !important;
+}
+
+/* Tabelas */
+.table {
+    color: var(--text-color) !important;
+    border-color: var(--card-border) !important;
+}
+
+.table thead {
+    background-color: var(--table-header) !important;
+    color: var(--text-color) !important;
+}
+
+.table-light {
+    background-color: var(--table-header) !important;
+}
+.table th,
+.table td {
+    border-color: var(--card-border) !important;
+}
+.table-hover tbody tr:hover {
+    background-color: var(--table-hover) !important;
+}
+
+/* Inputs */
+.form-control {
+    background-color: var(--input-bg) !important;
+    color: var(--input-color) !important;
+    border-color: var(--input-border) !important;
+}
+
+.form-control:focus {
+    background-color: var(--input-bg) !important;
+    color: var(--input-color) !important;
+}
+
+/* Lista */
+.list-group-item {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--card-border) !important;
+}
+
+/* Botões no tema escuro */
+[data-theme="dark"] .btn-outline-secondary {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: var(--text-color) !important;
+    color: var(--bg-color) !important;
+}
+/* Ajuste para o hover nas linhas da tabela */
+.table tbody tr:hover {
+    background-color: var(--table-hover) !important;
+    color: var(--text-color) !important;
+}

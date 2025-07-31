@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header('Detalhes do Filme')}">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+    <button onclick="toggleTheme()" class="btn btn-outline-secondary">
+        <i class="fas fa-moon"></i> Alternar Tema
+    </button>
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 th:text="${filme.titulo}">Título do Filme</h2>
+            </div>
+            <div class="card-body">
+                <p><b>Sinopse:</b> <span th:text="${filme.sinopse}"></span></p>
+                <p><b>Gênero:</b> <span th:text="${filme.genero}"></span></p>
+                <p><b>Ano:</b> <span th:text="${filme.anoLancamento}"></span></p>
+                <a href="/filmes" class="btn btn-secondary mb-3">Voltar</a>
+                <hr>
+                <h4>Análises</h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex align-items-center" th:each="analise : ${filme.analises}">
+                        <span 
+                            class="badge me-2"
+                            th:text="${analise.nota}"
+                            th:classappend="
+                                ${analise.nota >= 9} ? 'bg-success' :
+                                (${analise.nota >= 6} ? 'bg-success-subtle text-success-emphasis' :
+                                (${analise.nota >= 4} ? 'bg-warning text-dark' :
+                                'bg-danger'))
+                            ">
+                        </span>
+                        <span th:text="${analise.texto}"></span>
+                    </li>
+                    <li class="list-group-item" th:if="${filme.analises.size() == 0}">
+                        Nenhuma análise cadastrada.
+                    </li>
+                </ul>
+                <h5>Adicionar Análise</h5>
+                <form th:action="@{'/filmes/' + ${filme.id} + '/analise'}" method="post" class="row g-3">
+                    <div class="col-md-8">
+                        <input name="texto" class="form-control" placeholder="Comentário" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input name="nota" type="number" min="0" max="10" class="form-control" placeholder="Nota" required>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/theme.js"></script>
+
+</body>
+</html>
