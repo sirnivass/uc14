@@ -6,11 +6,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: header('Detalhes do Filme')}">
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
-    <button onclick="toggleTheme()" class="btn btn-outline-secondary">
-        <i class="fas fa-moon"></i> Alternar Tema
-    </button>
+        <button onclick="toggleTheme()" class="btn btn-outline-secondary">
+            <i class="fas fa-moon"></i> Alternar Tema
+        </button>
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
                 <h2 th:text="${filme.titulo}">Título do Filme</h2>
@@ -55,7 +55,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </div>
     </div>
-    <script src="/js/theme.js"></script>
-
 </body>
 </html>

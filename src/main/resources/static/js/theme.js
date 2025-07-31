@@ -1,7 +1,11 @@
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    document.body.style.setProperty('background-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color'));
+    
+    // Força atualização de cores em elementos específicos
+    document.querySelectorAll('.card, .table, .btn-outline-secondary').forEach(element => {
+        element.style.transition = 'background-color 0.3s, color 0.3s';
+    });
 }
 
 function toggleTheme() {
@@ -14,4 +18,7 @@ function toggleTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
+    
+    // Adiciona transições suaves
+    document.body.style.transition = 'background-color 0.3s, color 0.3s';
 });
