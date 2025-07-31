@@ -42,6 +42,13 @@ body {
 /* Tabelas */
 .table {
     background-color: var(--card-bg);
+    --bs-table-bg: var(--card-bg) !important;
+    
+    color: var(--text-color);
+}
+
+.table-light {
+    background-color: var(--card-bg);
     color: var(--text-color);
 }
 
@@ -79,4 +86,13 @@ h1, h2, h3, h4, h5, h6, p, span {
     background-color: var(--card-bg) !important;
     color: var(--text-color) !important;
     border-color: var(--card-border) !important;
+}
+
+/* Formulários */
+.form-label {
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .form-label {
+    color: #ffffff !important;
 }

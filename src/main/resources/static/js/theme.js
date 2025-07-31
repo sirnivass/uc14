@@ -6,6 +6,11 @@ function setTheme(theme) {
     document.querySelectorAll('.card, .table, .btn-outline-secondary').forEach(element => {
         element.style.transition = 'background-color 0.3s, color 0.3s';
     });
+    
+    // Atualiza labels do formulário
+    document.querySelectorAll('.form-label').forEach(label => {
+        label.style.color = isDark ? '#ffffff' : '#212529';
+    });
 }
 
 function toggleTheme() {
